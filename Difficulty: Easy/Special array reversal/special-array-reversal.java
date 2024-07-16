@@ -33,7 +33,7 @@ class Solution
     {
         StringBuilder sb=new StringBuilder(str);
         int l=0;
-        int r=sb.length()-1;
+        int r=str.length()-1;
         while(l<r)
         {
             if(!Character.isLetter(sb.charAt(l)))
