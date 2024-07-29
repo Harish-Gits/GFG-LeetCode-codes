@@ -28,13 +28,14 @@ class GFG {
 class Solution {
 
     // Note that the size of the array is n-1
-    int missingNumber(int n, int arr[]) {
-
+    int missingNumber(int n, int arr[])
+    {
         int x=0;
-        for(int e:arr)
-            x^=e;
         for(int i=1;i<=n;i++)
             x^=i;
+        for(int e:arr)
+            x^=e;
         return x;
+        
     }
 }
