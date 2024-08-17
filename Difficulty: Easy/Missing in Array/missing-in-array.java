@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.*;
 
 class GFG {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -28,14 +29,13 @@ class GFG {
 class Solution {
 
     // Note that the size of the array is n-1
-    int missingNumber(int n, int arr[])
-    {
-        int x=0;
+    int missingNumber(int n, int arr[]) {
+
+        int xor=0;
         for(int i=1;i<=n;i++)
-            x^=i;
-        for(int e:arr)
-            x^=e;
-        return x;
-        
+            xor^=i;
+        for(int x:arr)
+            xor^=x;
+        return xor;
     }
 }
