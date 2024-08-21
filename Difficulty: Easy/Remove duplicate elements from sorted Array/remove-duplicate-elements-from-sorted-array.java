@@ -29,20 +29,22 @@ public class GFG {
 
 
 // User function Template for Java
-class Solution {
+
+class Solution
+{
     // Function to remove duplicates from the given array
-    public int remove_duplicate(List<Integer> arr) {
-        if (arr.size() == 0) return 0;
-        
-        int i = 0;
-        for (int j = 1; j < arr.size(); j++) {
-            if (!arr.get(j).equals(arr.get(i))) {
+    public int remove_duplicate(List<Integer> arr)
+    {
+        int n=arr.size();
+        int i=0;
+        for(int j=1;j<n;j++)
+        {
+            if(!arr.get(i).equals(arr.get(j)))
+            {
                 i++;
-                arr.set(i, arr.get(j));
+                arr.set(i,arr.get(j));
             }
         }
-        
-        return i + 1;
+        return i+1;
     }
 }
-
