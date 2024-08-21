@@ -1,14 +1,5 @@
-WITH ConsecutiveNums AS (
-    SELECT num, 
-           id,
-           LAG(id, 1) OVER (ORDER BY id) AS prev_id,
-           LAG(num, 1) OVER (ORDER BY id) AS prev_num,
-           LAG(id, 2) OVER (ORDER BY id) AS prev_prev_id,
-           LAG(num, 2) OVER (ORDER BY id) AS prev_prev_num
-    FROM Logs
-)
-SELECT DISTINCT num AS ConsecutiveNums
-FROM ConsecutiveNums
-WHERE num = prev_num AND num = prev_prev_num
-  AND id = prev_id + 1
-  AND prev_id = prev_prev_id + 1;
+SELECT DISTINCT t1.num AS ConsecutiveNums
+FROM logs t1
+JOIN logs t2 ON t1.id = t2.id + 1
+JOIN logs t3 ON t2.id = t3.id + 1
+WHERE t1.num = t2.num AND t2.num = t3.num;
