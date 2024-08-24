@@ -35,9 +35,8 @@ class Solution
     // Function to remove duplicates from the given array
     public int remove_duplicate(List<Integer> arr)
     {
-        int n=arr.size();
         int i=0;
-        for(int j=1;j<n;j++)
+        for(int j=1;j<arr.size();j++)
         {
             if(!arr.get(i).equals(arr.get(j)))
             {
