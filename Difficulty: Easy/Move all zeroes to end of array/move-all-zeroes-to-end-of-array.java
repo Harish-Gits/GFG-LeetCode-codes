@@ -32,27 +32,30 @@ public class Main {
 
 //User function Template for Java
 
-class Solution {
-    void pushZerosToEnd(int[] arr, int n) {
-        if(n==1 || n==0)
-            return;
-        int z=0,nz=0;
-        while(nz<n)
-        {
-            if(arr[nz]!=0)
-            {
-                swap(nz,z,arr);
-                nz++;
-                z++;
-            }
-            else
-                nz++;
-        }
-    }
-    void swap(int nz,int z,int[] arr)
+class Solution
+{
+    void pushZerosToEnd(int[] arr, int n)
     {
-        int temp=arr[nz];
-        arr[nz]=arr[z];
-        arr[z]=temp;
+        int j=-1;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]==0)
+            {
+                j=i;
+                break;
+            }
+        }
+        if(j==-1)
+            return;
+        for(int i=j+1;i<n;i++)
+        {
+            if(arr[i]!=0)
+            {
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+                j++;
+            }
+        }
     }
 }
