@@ -49,52 +49,53 @@ class Main
 
 //arr1,arr2 : the arrays
 // n, m: size of arrays
-
-class Solution {
-    // Function to return a list containing the union of the two arrays.
-    public static ArrayList<Integer> findUnion(int arr1[], int arr2[], int n, int m) {
-        int p1 = 0, p2 = 0;
-        ArrayList<Integer> ans = new ArrayList<>();
-        HashSet<Integer> seen = new HashSet<>();
-
-        while (p1 < arr1.length && p2 < arr2.length) {
-            if (arr1[p1] < arr2[p2]) {
-                if (seen.add(arr1[p1])) {
-                    ans.add(arr1[p1]);
+class Solution
+{
+    //Function to return a list containing the union of the two arrays.
+    public static ArrayList<Integer> findUnion(int arr1[], int arr2[], int n, int m)
+    {
+        ArrayList<Integer> ans=new ArrayList<>();
+        Set<Integer> s=new HashSet<>();
+        int i=0,j=0;
+        while(i<n && j<m)
+        {
+            if(arr1[i]<arr2[j])
+            {
+                if(s.add(arr1[i]))
+                    ans.add(arr1[i]);
+                i++;
+            }
+            else if(arr2[j]<arr1[i])
+            {
+                if(s.add(arr2[j]))
+                    ans.add(arr2[j]);
+                j++;
+            }
+            else
+            {
+                if(s.add(arr1[i]))
+                {
+                    ans.add(arr1[i]);
                 }
-                p1++;
-            } else if (arr1[p1] > arr2[p2]) {
-                if (seen.add(arr2[p2])) {
-                    ans.add(arr2[p2]);
-                }
-                p2++;
-            } else {
-                if (seen.add(arr1[p1])) {
-                    ans.add(arr1[p1]);
-                }
-                p1++;
-                p2++;
+                i++;
+                j++;
             }
         }
-
-        while (p1 < arr1.length) {
-            if (seen.add(arr1[p1])) {
-                ans.add(arr1[p1]);
-            }
-            p1++;
+        while(i<n)
+        {
+            if(s.add(arr1[i]))
+                ans.add(arr1[i]);
+            i++;
         }
-
-        while (p2 < arr2.length) {
-            if (seen.add(arr2[p2])) {
-                ans.add(arr2[p2]);
-            }
-            p2++;
+        while(j<m)
+        {
+            if(s.add(arr2[j]))
+                ans.add(arr2[j]);
+            j++;
         }
-
         return ans;
     }
 }
-
 
 
 
