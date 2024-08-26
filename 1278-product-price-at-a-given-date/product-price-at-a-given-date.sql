@@ -9,9 +9,9 @@ LatestPrice AS (
     FROM PriceBeforeDate
 )
 SELECT p.product_id, 
-       COALESCE(MAX(lp.new_price), 10) AS price
+       COALESCE(lp.new_price, 10) AS price
 FROM (SELECT DISTINCT product_id FROM Products) p
 LEFT JOIN LatestPrice lp
 ON p.product_id = lp.product_id AND lp.rn = 1
-GROUP BY p.product_id;
+
 
