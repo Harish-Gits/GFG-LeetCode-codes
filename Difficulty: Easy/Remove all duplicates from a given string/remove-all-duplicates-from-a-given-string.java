@@ -31,16 +31,15 @@ class Solution
 {
     String removeDuplicates(String str)
     {
-        List<Character> l=new ArrayList<>();
-        char[] S=str.toCharArray();
-        for(char c:S)
-            if(!l.contains(c))
-                l.add(c);
-        StringBuilder sb=new StringBuilder();
-        for(char c:l)
-            sb.append(c);
-        return sb.toString();
-            
+        String ans="";
+        for(char ch:str.toCharArray())
+        {
+            String s=""+ch;
+            if(ans.contains(s))
+                continue;
+            ans+=ch;
+        }
+        return ans;
     }
 }
 
