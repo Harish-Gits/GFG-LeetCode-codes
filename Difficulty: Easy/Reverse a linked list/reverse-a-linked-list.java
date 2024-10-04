@@ -64,11 +64,10 @@ class Node {
 
 class Solution {
     // Function to reverse a linked list.
-    Node reverseList(Node head)
-    {
-        Node prev=null;
+    Node reverseList(Node head) {
         Node curr=head;
-        Node next=head.next;
+        Node prev=null;
+        Node next=null;
         
         while(curr!=null)
         {
@@ -77,7 +76,6 @@ class Solution {
             prev=curr;
             curr=next;
         }
-        head=prev;
-        return head;
+        return prev;
     }
 }
