@@ -27,19 +27,19 @@ class GFG
 
 class Solution{
     static int longestSubstrDistinctChars(String S){
+        Set<Character> set=new HashSet<>();
+        int st=0;
         int maxLen=1;
-        int l=0;
-        Set<Character> seen=new HashSet<>();
-        for(int r=0;r<S.length();r++)
+        for(int i=0;i<S.length();i++)
         {
-            char ch=S.charAt(r);
-            while(seen.contains(ch))
+            char ch=S.charAt(i);
+            while(set.contains(ch))
             {
-                seen.remove(S.charAt(l));
-                l++;
+                set.remove(S.charAt(st));
+                st++;
             }
-            seen.add(ch);
-            maxLen=Math.max(maxLen,r-l+1);
+            set.add(ch);
+            maxLen=Math.max(maxLen,i-st+1);
         }
         return maxLen;
     }
